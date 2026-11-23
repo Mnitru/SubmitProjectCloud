@@ -1,0 +1,225 @@
+{
+ "run_id": "main-mixed-s0.5-zstd-off-r2",
+ "suite": "main",
+ "app": "mixed",
+ "size_gb": 0.5,
+ "storage": "zstd",
+ "shuffle": "off",
+ "rep": 2,
+ "rounds": 80,
+ "status": "ok",
+ "rc": 0,
+ "app_id": "app-20261112033220-0155",
+ "t_start": 1794429137.0639722,
+ "t_end": 1794429222.6895478,
+ "wall_s": 85.62557554244995,
+ "net_rate": "100Mbit",
+ "confs": {
+  "spark.shuffle.compress": "false",
+  "spark.shuffle.spill.compress": "false",
+  "spark.broadcast.compress": "false",
+  "spark.rdd.compress": "false",
+  "spark.io.compression.codec": "lz4",
+  "spark.sql.shuffle.partitions": "36"
+ },
+ "app_result": {
+  "app": "mixed",
+  "rounds": 80,
+  "action_s": 72.37005376815796
+ },
+ "spark": {
+  "executor_run_s": 475.46899999999994,
+  "executor_cpu_s": 175.936983972,
+  "gc_s": 7.600000000000002,
+  "mem_spill_bytes": 0.0,
+  "disk_spill_bytes": 0.0,
+  "input_bytes": 160185858.0,
+  "input_records": 2187756.0,
+  "output_bytes": 4493427.0,
+  "shuffle_remote_bytes": 816543980.0,
+  "shuffle_local_bytes": 636886908.0,
+  "shuffle_read_bytes": 1453430888.0,
+  "shuffle_fetch_wait_s": 187.04399999999998,
+  "shuffle_write_bytes": 1453430888.0,
+  "shuffle_write_time_s": 3.0278459869999996,
+  "shuffle_records": 3823844.0,
+  "tasks": 94,
+  "failed_tasks": 0,
+  "app_s": 82.872,
+  "jobs_s": 74.955,
+  "jobs": 3,
+  "shuffle_read_stages_s": 64.612,
+  "shuffle_write_stages_s": 52.533,
+  "cpu_fraction": 0.37002829621279204,
+  "hosts": {
+   "10.99.0.11": {
+    "tasks": 56,
+    "run_s": 168.6,
+    "cpu_s": 79.38198870000002
+   },
+   "10.99.0.12": {
+    "tasks": 24,
+    "run_s": 137.759,
+    "cpu_s": 38.6933664
+   },
+   "10.99.0.13": {
+    "tasks": 14,
+    "run_s": 169.10999999999999,
+    "cpu_s": 57.86162887199999
+   }
+  },
+  "stages": [
+   {
+    "id": 0,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 1,
+    "dur_s": 1.544,
+    "shuffle_read": 0,
+    "shuffle_write": 0
+   },
+   {
+    "id": 1,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 1,
+    "dur_s": 0.06,
+    "shuffle_read": 0,
+    "shuffle_write": 0
+   },
+   {
+    "id": 2,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 2,
+    "dur_s": 3.109,
+    "shuffle_read": 0,
+    "shuffle_write": 6250680
+   },
+   {
+    "id": 3,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 18,
+    "dur_s": 5.739,
+    "shuffle_read": 0,
+    "shuffle_write": 561966656
+   },
+   {
+    "id": 4,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 36,
+    "dur_s": 43.685,
+    "shuffle_read": 568217336,
+    "shuffle_write": 885213552
+   },
+   {
+    "id": 5,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 36,
+    "dur_s": 20.927,
+    "shuffle_read": 885213552,
+    "shuffle_write": 0
+   }
+  ]
+ },
+ "system": {
+  "duration_s": 85.62557554244995,
+  "nodes": {
+   "master": {
+    "cpu_busy_s": 24.970000000000255,
+    "cpu_iowait_s": 1.080000000000041,
+    "cpu_total_s": 171.2699999999968,
+    "disk_read_bytes": 117014528.0,
+    "disk_write_bytes": 8376320.0,
+    "net_rx_bytes": 6045172.0,
+    "net_tx_bytes": 3224740.0,
+    "mem_used_max_bytes": 2498998272.0,
+    "mem_used_avg_bytes": 2446497721.3793106,
+    "cpu_util_pct": 14.579319203597082,
+    "iowait_pct": 0.6305832895428628,
+    "disk_read_MBps": 1.366583842020292,
+    "disk_write_MBps": 0.09782497748990118,
+    "net_rx_MBps": 0.07060007435515607,
+    "net_tx_MBps": 0.03766094393609413
+   },
+   "worker1": {
+    "cpu_busy_s": 129.3099999999995,
+    "cpu_iowait_s": 1.1100000000001273,
+    "cpu_total_s": 258.1000000000058,
+    "disk_read_bytes": 200966144.0,
+    "disk_write_bytes": 781946880.0,
+    "net_rx_bytes": 330023272.0,
+    "net_tx_bytes": 448543036.0,
+    "mem_used_max_bytes": 2396532736.0,
+    "mem_used_avg_bytes": 2041108315.218391,
+    "cpu_util_pct": 50.10073614877822,
+    "iowait_pct": 0.4300658659434724,
+    "disk_read_MBps": 2.3470340809606416,
+    "disk_write_MBps": 9.132164952425224,
+    "net_rx_MBps": 3.854260481278597,
+    "net_tx_MBps": 5.238423603677025
+   },
+   "worker2": {
+    "cpu_busy_s": 82.03000000000065,
+    "cpu_iowait_s": 1.1299999999999955,
+    "cpu_total_s": 261.2299999999959,
+    "disk_read_bytes": 130555904.0,
+    "disk_write_bytes": 220971008.0,
+    "net_rx_bytes": 373604904.0,
+    "net_tx_bytes": 235340364.0,
+    "mem_used_max_bytes": 2139234304.0,
+    "mem_used_avg_bytes": 1825431928.6436782,
+    "cpu_util_pct": 31.40144700072807,
+    "iowait_pct": 0.43256900049765074,
+    "disk_read_MBps": 1.5247302359477313,
+    "disk_write_MBps": 2.580665958740924,
+    "net_rx_MBps": 4.363239623595647,
+    "net_tx_MBps": 2.74848212708745
+   },
+   "worker3": {
+    "cpu_busy_s": 78.72999999999956,
+    "cpu_iowait_s": 2.589999999999918,
+    "cpu_total_s": 201.02000000000407,
+    "disk_read_bytes": 122159104.0,
+    "disk_write_bytes": 174178304.0,
+    "net_rx_bytes": 200301420.0,
+    "net_tx_bytes": 223370796.0,
+    "mem_used_max_bytes": 2308276224.0,
+    "mem_used_avg_bytes": 1908338843.5443044,
+    "cpu_util_pct": 39.16525718833846,
+    "iowait_pct": 1.2884290120385362,
+    "disk_read_MBps": 1.4266660775837716,
+    "disk_write_MBps": 2.0341854976922042,
+    "net_rx_MBps": 2.33927093314191,
+    "net_tx_MBps": 2.6086924915238807
+   }
+  },
+  "workers": {
+   "cpu_busy_s": 290.0699999999997,
+   "cpu_iowait_s": 4.830000000000041,
+   "disk_read_bytes": 453681152.0,
+   "disk_write_bytes": 1177096192.0,
+   "net_rx_bytes": 903929596.0,
+   "net_tx_bytes": 907254196.0,
+   "cpu_util_pct_avg": 40.22248011261492,
+   "iowait_pct_avg": 0.7170212928265531,
+   "disk_read_MBps_avg": 1.7661434648307148,
+   "disk_write_MBps_avg": 4.582338802952784,
+   "net_rx_MBps_avg": 3.5189236793387177,
+   "net_tx_MBps_avg": 3.5318660740961185,
+   "mem_used_max_bytes": 2396532736.0
+  },
+  "cluster": {
+   "cpu_busy_s": 315.03999999999996,
+   "cpu_iowait_s": 5.910000000000082,
+   "disk_read_bytes": 570695680.0,
+   "disk_write_bytes": 1185472512.0,
+   "net_rx_bytes": 909974768.0,
+   "net_tx_bytes": 910478936.0,
+   "cpu_util_pct_avg": 33.81168988536046,
+   "iowait_pct_avg": 0.6954117920056305,
+   "disk_read_MBps_avg": 1.6662535591281091,
+   "disk_write_MBps_avg": 3.461210346587064,
+   "net_rx_MBps_avg": 2.656842778092827,
+   "net_tx_MBps_avg": 2.6583147915561125,
+   "mem_used_max_bytes": 2498998272.0
+  }
+ }
+}

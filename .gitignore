@@ -1,0 +1,9 @@
+# WireGuard private keys and the rendered worker3 cloud-init (contains keys)
+# stay on master in ~/study/generated - never commit them
+generated/
+*.key
+
+# temporary archives and Python caches
+*.tgz
+__pycache__/
+*.pyc

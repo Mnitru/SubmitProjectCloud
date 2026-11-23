@@ -1,0 +1,71 @@
+{
+  "uid": "cluster-overview",
+  "title": "Compression study - cluster overview",
+  "description": "All 4 VMs on the same panels. Cluster traffic = WireGuard interface wg0 (capped at NET_RATE).",
+  "schemaVersion": 39,
+  "editable": true,
+  "time": { "from": "now-30m", "to": "now" },
+  "refresh": "5s",
+  "timezone": "browser",
+  "tags": ["cluster"],
+  "panels": [
+    {
+      "type": "timeseries", "title": "CPU busy (%)", "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percent", "min": 0, "max": 100, "custom": { "lineWidth": 2, "fillOpacity": 0 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace(100 * (1 - avg by (instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[$__rate_interval]))), \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    },
+    {
+      "type": "timeseries", "title": "CPU waiting for disk - iowait (%)", "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "percent", "min": 0, "custom": { "lineWidth": 2, "fillOpacity": 0 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace(100 * avg by (instance) (rate(node_cpu_seconds_total{mode=\"iowait\"}[$__rate_interval])), \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    },
+    {
+      "type": "timeseries", "title": "Cluster network sent, wg0 (Mbit/s) - cap shown as a line", "gridPos": { "x": 0, "y": 8, "w": 12, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "Mbits", "min": 0,
+        "thresholds": { "mode": "absolute", "steps": [ { "color": "transparent", "value": null }, { "color": "red", "value": 100 } ] },
+        "custom": { "lineWidth": 2, "fillOpacity": 0, "thresholdsStyle": { "mode": "line" } } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace(sum by (instance) (rate(node_network_transmit_bytes_total{device=\"wg0\"}[$__rate_interval])) * 8 / 1e6, \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    },
+    {
+      "type": "timeseries", "title": "Cluster network received, wg0 (Mbit/s)", "gridPos": { "x": 12, "y": 8, "w": 12, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "Mbits", "min": 0, "custom": { "lineWidth": 2, "fillOpacity": 0 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace(sum by (instance) (rate(node_network_receive_bytes_total{device=\"wg0\"}[$__rate_interval])) * 8 / 1e6, \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    },
+    {
+      "type": "timeseries", "title": "Disk read (MB/s)", "gridPos": { "x": 0, "y": 16, "w": 8, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "MBs", "min": 0, "custom": { "lineWidth": 2, "fillOpacity": 0 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace(sum by (instance) (rate(node_disk_read_bytes_total{device=~\"sd[a-z]+|vd[a-z]+|nvme[0-9]+n[0-9]+\"}[$__rate_interval])) / 1e6, \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    },
+    {
+      "type": "timeseries", "title": "Disk write (MB/s)", "gridPos": { "x": 8, "y": 16, "w": 8, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "MBs", "min": 0, "custom": { "lineWidth": 2, "fillOpacity": 0 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace(sum by (instance) (rate(node_disk_written_bytes_total{device=~\"sd[a-z]+|vd[a-z]+|nvme[0-9]+n[0-9]+\"}[$__rate_interval])) / 1e6, \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    },
+    {
+      "type": "timeseries", "title": "Memory used (GB)", "gridPos": { "x": 16, "y": 16, "w": 8, "h": 8 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "fieldConfig": { "defaults": { "unit": "decgbytes", "min": 0, "custom": { "lineWidth": 2, "fillOpacity": 0 } }, "overrides": [] },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "multi" } },
+      "targets": [ { "refId": "A", "legendFormat": "{{node}}",
+        "expr": "label_replace((node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / 1e9, \"node\", \"$1\", \"instance\", \"([^:]+):.*\")" } ]
+    }
+  ]
+}

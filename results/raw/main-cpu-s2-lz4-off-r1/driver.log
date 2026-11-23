@@ -1,0 +1,57 @@
+/opt/spark/bin/spark-submit --name main-cpu-s2-lz4-off-r1 --conf spark.shuffle.compress=false --conf spark.shuffle.spill.compress=false --conf spark.broadcast.compress=false --conf spark.rdd.compress=false --conf spark.io.compression.codec=lz4 --conf spark.sql.shuffle.partitions=72 /home/ubuntu/study/apps/app_cpu_hash.py --data /data/s2/lz4 --out /tmp/out/main-cpu-s2-lz4-off-r1 --codec lz4 --rounds 96
+26/11/12 10:13:05 INFO SparkContext: Running Spark version 3.5.3
+26/11/12 10:13:05 INFO SparkContext: OS info Linux, 5.15.0-203-generic, amd64
+26/11/12 10:13:05 INFO SparkContext: Java version 11.0.33
+26/11/12 10:13:05 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+26/11/12 10:13:05 INFO ResourceUtils: ==============================================================
+26/11/12 10:13:05 INFO ResourceUtils: No custom resources configured for spark.driver.
+26/11/12 10:13:05 INFO ResourceUtils: ==============================================================
+26/11/12 10:13:05 INFO SparkContext: Submitted application: cpu-hash
+26/11/12 10:13:05 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -> name: cores, amount: 3, script: , vendor: , memory -> name: memory, amount: 3072, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+26/11/12 10:13:05 INFO ResourceProfile: Limiting resource is cpus at 3 tasks per executor
+26/11/12 10:13:05 INFO ResourceProfileManager: Added ResourceProfile id: 0
+26/11/12 10:13:05 INFO SecurityManager: Changing view acls to: ubuntu
+26/11/12 10:13:05 INFO SecurityManager: Changing modify acls to: ubuntu
+26/11/12 10:13:05 INFO SecurityManager: Changing view acls groups to: 
+26/11/12 10:13:05 INFO SecurityManager: Changing modify acls groups to: 
+26/11/12 10:13:05 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ubuntu; groups with view permissions: EMPTY; users with modify permissions: ubuntu; groups with modify permissions: EMPTY
+26/11/12 10:13:05 INFO Utils: Successfully started service 'sparkDriver' on port 35825.
+26/11/12 10:13:05 INFO SparkEnv: Registering MapOutputTracker
+26/11/12 10:13:05 INFO SparkEnv: Registering BlockManagerMaster
+26/11/12 10:13:05 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+26/11/12 10:13:05 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+26/11/12 10:13:05 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+26/11/12 10:13:05 INFO DiskBlockManager: Created local directory at /data/spark-local/blockmgr-a663201d-a93b-4353-89b8-c7d08ba37f0a
+26/11/12 10:13:05 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+26/11/12 10:13:05 INFO SparkEnv: Registering OutputCommitCoordinator
+26/11/12 10:13:05 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+26/11/12 10:13:05 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://master:7077...
+26/11/12 10:13:06 INFO TransportClientFactory: Successfully created connection to master/10.99.0.10:7077 after 26 ms (0 ms spent in bootstraps)
+26/11/12 10:13:06 INFO StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20261112101306-0349
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261112101306-0349/0 on worker-20261112001127-10.99.0.11-39003 (10.99.0.11:39003) with 3 core(s)
+26/11/12 10:13:06 INFO StandaloneSchedulerBackend: Granted executor ID app-20261112101306-0349/0 on hostPort 10.99.0.11:39003 with 3 core(s), 3.0 GiB RAM
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261112101306-0349/1 on worker-20261112001127-10.99.0.12-41215 (10.99.0.12:41215) with 3 core(s)
+26/11/12 10:13:06 INFO StandaloneSchedulerBackend: Granted executor ID app-20261112101306-0349/1 on hostPort 10.99.0.12:41215 with 3 core(s), 3.0 GiB RAM
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Executor added: app-20261112101306-0349/2 on worker-20261112072615-10.99.0.13-38923 (10.99.0.13:38923) with 3 core(s)
+26/11/12 10:13:06 INFO StandaloneSchedulerBackend: Granted executor ID app-20261112101306-0349/2 on hostPort 10.99.0.13:38923 with 3 core(s), 3.0 GiB RAM
+26/11/12 10:13:06 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 40855.
+26/11/12 10:13:06 INFO NettyBlockTransferService: Server created on master:40855
+26/11/12 10:13:06 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+26/11/12 10:13:06 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, master, 40855, None)
+26/11/12 10:13:06 INFO BlockManagerMasterEndpoint: Registering block manager master:40855 with 434.4 MiB RAM, BlockManagerId(driver, master, 40855, None)
+26/11/12 10:13:06 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, master, 40855, None)
+26/11/12 10:13:06 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, master, 40855, None)
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261112101306-0349/1 is now RUNNING
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261112101306-0349/0 is now RUNNING
+26/11/12 10:13:06 INFO StandaloneAppClient$ClientEndpoint: Executor updated: app-20261112101306-0349/2 is now RUNNING
+26/11/12 10:13:06 INFO SingleEventLogFileWriter: Logging events to file:/data/spark-events/app-20261112101306-0349.inprogress
+26/11/12 10:13:08 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.99.0.12:54470) with ID 1,  ResourceProfileId 0
+26/11/12 10:13:08 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.99.0.11:53130) with ID 0,  ResourceProfileId 0
+26/11/12 10:13:08 INFO BlockManagerMasterEndpoint: Registering block manager 10.99.0.12:42811 with 1663.2 MiB RAM, BlockManagerId(1, 10.99.0.12, 42811, None)
+26/11/12 10:13:08 INFO BlockManagerMasterEndpoint: Registering block manager 10.99.0.11:36795 with 1663.2 MiB RAM, BlockManagerId(0, 10.99.0.11, 36795, None)
+26/11/12 10:13:11 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Registered executor NettyRpcEndpointRef(spark-client://Executor) (10.99.0.13:50040) with ID 2,  ResourceProfileId 0
+26/11/12 10:13:11 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 1.0
+26/11/12 10:13:11 INFO BlockManagerMasterEndpoint: Registering block manager 10.99.0.13:43727 with 1663.2 MiB RAM, BlockManagerId(2, 10.99.0.13, 43727, None)
+APP_ID=app-20261112101306-0349
+APP_RESULT={"app": "cpu", "rounds": 96, "action_s": 96.26932525634766}

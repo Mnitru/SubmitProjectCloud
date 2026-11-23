@@ -1,0 +1,207 @@
+{
+ "run_id": "main-sort-s2-lz4-off-r1",
+ "suite": "main",
+ "app": "sort",
+ "size_gb": 2.0,
+ "storage": "lz4",
+ "shuffle": "off",
+ "rep": 1,
+ "status": "ok",
+ "rc": 0,
+ "app_id": "app-20261112092316-0332",
+ "t_start": 1794450193.0159752,
+ "t_end": 1794450359.1288097,
+ "wall_s": 166.11283445358276,
+ "net_rate": "100Mbit",
+ "confs": {
+  "spark.shuffle.compress": "false",
+  "spark.shuffle.spill.compress": "false",
+  "spark.broadcast.compress": "false",
+  "spark.rdd.compress": "false",
+  "spark.io.compression.codec": "lz4",
+  "spark.sql.shuffle.partitions": "72"
+ },
+ "app_result": {
+  "app": "sort",
+  "action_s": 153.5824999809265
+ },
+ "spark": {
+  "executor_run_s": 1197.4640000000002,
+  "executor_cpu_s": 69.772789825,
+  "gc_s": 4.053999999999996,
+  "mem_spill_bytes": 0.0,
+  "disk_spill_bytes": 0.0,
+  "input_bytes": 2432094250.0,
+  "input_records": 16668628.0,
+  "output_bytes": 1225350654.0,
+  "shuffle_remote_bytes": 1699031108.0,
+  "shuffle_local_bytes": 1401876164.0,
+  "shuffle_read_bytes": 3100907272.0,
+  "shuffle_fetch_wait_s": 683.4189999999999,
+  "shuffle_write_bytes": 3100907272.0,
+  "shuffle_write_time_s": 7.422496316000001,
+  "shuffle_records": 8334314.0,
+  "tasks": 217,
+  "failed_tasks": 0,
+  "app_s": 163.528,
+  "jobs_s": 155.487,
+  "jobs": 3,
+  "shuffle_read_stages_s": 135.275,
+  "shuffle_write_stages_s": 7.298,
+  "cpu_fraction": 0.0582671293876058,
+  "hosts": {
+   "10.99.0.11": {
+    "tasks": 49,
+    "run_s": 377.74999999999994,
+    "cpu_s": 15.967411100000001
+   },
+   "10.99.0.12": {
+    "tasks": 143,
+    "run_s": 399.89300000000003,
+    "cpu_s": 34.423869399999994
+   },
+   "10.99.0.13": {
+    "tasks": 25,
+    "run_s": 419.82099999999997,
+    "cpu_s": 19.381509325
+   }
+  },
+  "stages": [
+   {
+    "id": 0,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 1,
+    "dur_s": 1.58,
+    "shuffle_read": 0,
+    "shuffle_write": 0
+   },
+   {
+    "id": 1,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 72,
+    "dur_s": 9.66,
+    "shuffle_read": 0,
+    "shuffle_write": 0
+   },
+   {
+    "id": 2,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 72,
+    "dur_s": 7.298,
+    "shuffle_read": 0,
+    "shuffle_write": 3100907272
+   },
+   {
+    "id": 3,
+    "name": "parquet at NativeMethodAccessorImpl.java:0",
+    "tasks": 72,
+    "dur_s": 135.275,
+    "shuffle_read": 3100907272,
+    "shuffle_write": 0
+   }
+  ]
+ },
+ "system": {
+  "duration_s": 166.11283445358276,
+  "nodes": {
+   "master": {
+    "cpu_busy_s": 33.10999999999876,
+    "cpu_iowait_s": 2.1399999999999864,
+    "cpu_total_s": 330.4799999999959,
+    "disk_read_bytes": 202805248.0,
+    "disk_write_bytes": 19173376.0,
+    "net_rx_bytes": 11973224.0,
+    "net_tx_bytes": 5470580.0,
+    "mem_used_max_bytes": 2607628288.0,
+    "mem_used_avg_bytes": 2545596147.8095217,
+    "cpu_util_pct": 10.018760590655765,
+    "iowait_pct": 0.6475429678044096,
+    "disk_read_MBps": 1.2208884922535608,
+    "disk_write_MBps": 0.11542380853995755,
+    "net_rx_MBps": 0.07207886157252769,
+    "net_tx_MBps": 0.03293291585803778
+   },
+   "worker1": {
+    "cpu_busy_s": 77.66999999999825,
+    "cpu_iowait_s": 1.8699999999998909,
+    "cpu_total_s": 505.30000000001746,
+    "disk_read_bytes": 243699712.0,
+    "disk_write_bytes": 1117179904.0,
+    "net_rx_bytes": 1550454384.0,
+    "net_tx_bytes": 853266688.0,
+    "mem_used_max_bytes": 2072641536.0,
+    "mem_used_avg_bytes": 1922999881.1428576,
+    "cpu_util_pct": 15.371066693052756,
+    "iowait_pct": 0.37007718187212074,
+    "disk_read_MBps": 1.4670733468707229,
+    "disk_write_MBps": 6.725427975959172,
+    "net_rx_MBps": 9.333742266815912,
+    "net_tx_MBps": 5.136669245376281
+   },
+   "worker2": {
+    "cpu_busy_s": 103.26000000000204,
+    "cpu_iowait_s": 2.7100000000000364,
+    "cpu_total_s": 507.6899999999878,
+    "disk_read_bytes": 1425539072.0,
+    "disk_write_bytes": 2840293376.0,
+    "net_rx_bytes": 976823628.0,
+    "net_tx_bytes": 1817707656.0,
+    "mem_used_max_bytes": 2781753344.0,
+    "mem_used_avg_bytes": 2575444699.4285707,
+    "cpu_util_pct": 20.339183359925254,
+    "iowait_pct": 0.5337903051074675,
+    "disk_read_MBps": 8.581751534667486,
+    "disk_write_MBps": 17.098578718152382,
+    "net_rx_MBps": 5.880482572061316,
+    "net_tx_MBps": 10.94260814932952
+   },
+   "worker3": {
+    "cpu_busy_s": 164.95999999999913,
+    "cpu_iowait_s": 4.039999999999964,
+    "cpu_total_s": 473.31999999999243,
+    "disk_read_bytes": 430039040.0,
+    "disk_write_bytes": 1116110848.0,
+    "net_rx_bytes": 929587188.0,
+    "net_tx_bytes": 792183476.0,
+    "mem_used_max_bytes": 2188906496.0,
+    "mem_used_avg_bytes": 2001512057.9047618,
+    "cpu_util_pct": 34.85168596298524,
+    "iowait_pct": 0.8535451702864929,
+    "disk_read_MBps": 2.588836927709922,
+    "disk_write_MBps": 6.718992254098686,
+    "net_rx_MBps": 5.59611899380211,
+    "net_tx_MBps": 4.768948038276726
+   }
+  },
+  "workers": {
+   "cpu_busy_s": 345.8899999999994,
+   "cpu_iowait_s": 8.61999999999989,
+   "disk_read_bytes": 2099277824.0,
+   "disk_write_bytes": 5073584128.0,
+   "net_rx_bytes": 3456865200.0,
+   "net_tx_bytes": 3463157820.0,
+   "cpu_util_pct_avg": 23.52064533865442,
+   "iowait_pct_avg": 0.5858042190886937,
+   "disk_read_MBps_avg": 4.212553936416044,
+   "disk_write_MBps_avg": 10.180999649403413,
+   "net_rx_MBps_avg": 6.936781277559779,
+   "net_tx_MBps_avg": 6.949408477660842,
+   "mem_used_max_bytes": 2781753344.0
+  },
+  "cluster": {
+   "cpu_busy_s": 378.9999999999982,
+   "cpu_iowait_s": 10.759999999999877,
+   "disk_read_bytes": 2302083072.0,
+   "disk_write_bytes": 5092757504.0,
+   "net_rx_bytes": 3468838424.0,
+   "net_tx_bytes": 3468628400.0,
+   "cpu_util_pct_avg": 20.145174151654754,
+   "iowait_pct_avg": 0.6012389062676227,
+   "disk_read_MBps_avg": 3.464637575375423,
+   "disk_write_MBps_avg": 7.66460568918755,
+   "net_rx_MBps_avg": 5.220605673562966,
+   "net_tx_MBps_avg": 5.220289587210141,
+   "mem_used_max_bytes": 2781753344.0
+  }
+ }
+}
