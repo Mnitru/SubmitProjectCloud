@@ -1,6 +1,6 @@
 # Group 5 members:
-1. Le Quoc Trung
-2. Nguyen Duy Anh Tung
+1. Le Quoc Trung - 2540103 
+2. Nguyen Duy Anh Tung - 2540107
 3. Nguyen Xuan Vinh - 2540027
 4. Trinh Thanh Vinh - 2540110
 # Data compression in Spark and HDFS – Group 5
