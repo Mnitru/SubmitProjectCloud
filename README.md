@@ -1,4 +1,4 @@
-** Group 5 members:
+# Group 5 members:
 Le Quoc Trung
 Nguyen Duy Anh Tung
 Nguyen Xuan Vinh
