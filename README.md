@@ -1,3 +1,8 @@
+** Group 5 members:
+Le Quoc Trung
+Nguyen Duy Anh Tung
+Nguyen Xuan Vinh
+Trinh Thanh Vinh - 2540110
 # Data compression in Spark and HDFS – Group 5
 
 InfraCloud project, USTH. Storage-level (HDFS/Parquet) and communication-level (Spark shuffle)
